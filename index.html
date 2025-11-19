@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Elks Riders #2524 Leather Koozie Order Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #f3f6ff;
+      --card: #ffffff;
+      --accent: #0b3c7d;
+      --accent-light: #4a86e8;
+      --border: #c8d4f2;
+      --text: #102033;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .page {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 1.75rem;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      border: 1px solid var(--border);
+    }
+
+    h1, h2, h3 {
+      margin-top: 0;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    h1 {
+      font-size: 1.9rem;
+      margin-bottom: 0.25rem;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      margin-top: 1.75rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.35rem;
+    }
+
+    p {
+      line-height: 1.5;
+      margin-top: 0.3rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .subtle {
+      font-size: 0.9rem;
+      color: #4a5670;
+    }
+
+    .highlight {
+      background: #eef3ff;
+      border-left: 4px solid var(--accent-light);
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      margin: 1rem 0;
+      font-size: 0.95rem;
+    }
+
+    form {
+      margin-top: 1rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    label {
+      display: block;
+      font-size: 0.95rem;
+      margin-bottom: 0.25rem;
+      font-weight: 500;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="email"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 0.45rem 0.55rem;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+      background-color: #f9fbff;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: var(--accent-light);
+      box-shadow: 0 0 0 2px rgba(74,134,232,0.3);
+    }
+
+    textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+
+    .checkbox-row,
+    .inline-row {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.4rem;
+    }
+
+    input[type="checkbox"],
+    input[type="radio"] {
+      width: auto;
+      accent-color: var(--accent);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .badge {
+      font-size: 0.8rem;
+      background: var(--accent);
+      color: #fff;
+      padding: 0.1rem 0.55rem;
+      border-radius: 999px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .koozie-list {
+      margin-top: 0.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .koozie-item {
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      padding: 0.9rem 0.9rem 0.75rem;
+      background: #f7f9ff;
+      position: relative;
+    }
+
+    .koozie-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.4rem;
+    }
+
+    .koozie-title {
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .pill {
+      font-size: 0.8rem;
+      padding: 0.05rem 0.5rem;
+      border-radius: 999px;
+      background: #dbe5ff;
+      color: var(--accent);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.95rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.15s ease, transform 0.05s ease, box-shadow 0.15s ease;
+    }
+
+    .btn:hover {
+      background: #0c4c9a;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.18);
+      transform: translateY(-1px);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+      box-shadow: none;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--accent);
+      border-color: var(--accent-light);
+      box-shadow: none;
+    }
+
+    .btn-outline:hover {
+      background: #e7efff;
+    }
+
+    .btn-small {
+      padding: 0.25rem 0.65rem;
+      font-size: 0.82rem;
+    }
+
+    .actions-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .totals {
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+
+    .totals strong {
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .footer-text {
+      margin-top: 1.1rem;
+      font-size: 0.85rem;
+      color: #4a5670;
+    }
+
+    .footer-text span {
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .preview-box {
+      margin-top: 0.9rem;
+      background: #f0f4ff;
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--border);
+    }
+
+    .preview-box textarea {
+      font-family: monospace;
+      font-size: 0.85rem;
+      background: transparent;
+      border: none;
+      padding: 0;
+      min-height: 120px;
+    }
+
+    @media (max-width: 640px) {
+      .actions-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .actions-row > div {
+        width: 100%;
+      }
+      .btn {
+        justify-content: center;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="card">
+      <header>
+        <h1>Elks Riders Leather “Biker Vest” Koozie Order Form</h1>
+        <p>
+          Handmade natural deer leather koozies, engraved and cut on CNC laser, finished with metal grommets, rivets, oil,
+          and leather lacing down both sides. Designed to look like Elks Riders vests.
+        </p>
+        <div class="highlight">
+          <strong>Pricing break down:</strong> Each koozie is <strong>$30</strong>.<br />
+          <strong>$15</strong> will go directly to <strong>Forks Elks Riders #2524</strong> general funds to help fund future projects,
+          and <strong>$15</strong> will go to <strong>KLOWN</strong> to help him cover the cost of materials.
+          Flat-rate <strong>$5 shipping</strong> is available anywhere in the U.S. for up to <strong>10 koozies per order</strong>.
+        </div>
+        <p class="subtle">
+          Handmade by <strong>“KLOWN”</strong>, Current President and a Founding Member of Forks Elks Riders #2524.<br />
+          When you submit this form, your email program will open with all order details filled in and addressed to
+          <strong>pnw.klown@gmail.com</strong>.<br />
+          You will receive a <strong>PayPal invoice</strong> once your order is ready to begin. Please <strong>do not send any payment</strong>
+          until you receive that invoice. If you have not received an invoice within two weeks, please email pnw.klown@gmail.com to request an update on the status of your order.
+        </p>
+      </header>
+
+      <form id="order-form">
+        <!-- CUSTOMER INFO -->
+        <h2>Customer & Shipping Details</h2>
+        <div class="grid-2">
+          <div>
+            <label for="customer-name">Your full name (person placing this order) *</label>
+            <input type="text" id="customer-name" required />
+          </div>
+          <div>
+            <label for="customer-email">Email (for confirmation) *</label>
+            <input type="email" id="customer-email" required />
+          </div>
+          <div>
+            <label for="customer-phone">Phone (optional)</label>
+            <input type="text" id="customer-phone" />
+          </div>
+          <div>
+            <label for="home-lodge-number">Your Home Lodge Number (if different)</label>
+            <input type="text" id="home-lodge-number" placeholder="e.g. 2524" />
+          </div>
+        </div>
+
+        <div class="grid-2" style="margin-top: 0.75rem;">
+          <div>
+            <label for="shipping-address">Shipping address (for USPS flat-rate)</label>
+            <textarea id="shipping-address" placeholder="Street, City, State, ZIP"></textarea>
+          </div>
+          <div>
+            <label>Shipping *</label>
+            <div class="checkbox-row">
+              <label class="inline-row">
+                <input type="radio" name="shipping-option" value="ship" checked />
+                <span>Ship my order (adds $5 flat-rate per order, up to 10 koozies)</span>
+              </label>
+            </div>
+            <div class="checkbox-row">
+              <label class="inline-row">
+                <input type="radio" name="shipping-option" value="pickup" />
+                <span>Local pickup / arrange directly with KLOWN (no shipping charge)</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- KOOZIE ITEMS -->
+        <div class="section-header">
+          <h2>Koozie Personalization</h2>
+          <span class="badge">Each one can be unique</span>
+        </div>
+        <p class="subtle">
+          Add a separate entry for each koozie. Each koozie has the rider’s <strong>member name</strong> and separate
+          <strong>road name</strong>, plus Lodge number, officer title, and “Founding Member” if needed.
+          If you need more than <strong>10 koozies</strong>, please submit an additional order form for the extra items.
+        </p>
+
+        <div class="koozie-list" id="koozie-list">
+          <!-- Koozies are injected here by JS -->
+        </div>
+
+        <button type="button" class="btn btn-outline btn-small" id="add-koozie-btn">
+          + Add another koozie (max 10 per order)
+        </button>
+
+        <!-- TOTALS -->
+        <h2>Order Summary</h2>
+        <div class="totals" id="totals">
+          <div><strong>Quantity:</strong> <span id="summary-qty">0</span> koozie(s)</div>
+          <div><strong>Subtotal:</strong> $<span id="summary-subtotal">0</span></div>
+          <div><strong>To Elks Riders #2524 general funds:</strong> $<span id="summary-donation">0</span></div>
+          <div><strong>To KLOWN for materials:</strong> $<span id="summary-materials">0</span></div>
+          <div><strong>Shipping:</strong> $<span id="summary-shipping">0</span></div>
+          <div style="margin-top: 0.35rem;">
+            <strong>Total amount to be invoiced:</strong> $<span id="summary-total">0</span>
+          </div>
+        </div>
+
+        <!-- PREVIEW (for copying if email client has issues) -->
+        <div class="preview-box">
+          <label for="preview-text" class="subtle">
+            Order email preview (if your email program doesn’t open, you can copy/paste this into a new email).
+          </label>
+          <textarea id="preview-text" readonly></textarea>
+        </div>
+
+        <!-- ACTIONS -->
+        <div class="actions-row">
+          <div>
+            <button type="submit" class="btn">
+              Open Email with My Order
+            </button>
+          </div>
+          <div class="subtle">
+            After your email opens:<br />
+            1) Review the details and click <strong>Send</strong>.<br />
+            2) Once KLOWN is ready to begin your order, you will receive a <strong>PayPal invoice</strong> for the total amount.
+          </div>
+        </div>
+
+        <p class="footer-text">
+          <span>Note:</span> This site does not process online payments. Orders are completed by emailing your details.
+          Payment is made only after you receive a PayPal invoice from KLOWN.
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <!-- TEMPLATE FOR KOOZIE ITEM -->
+  <template id="koozie-template">
+    <div class="koozie-item">
+      <div class="koozie-title-row">
+        <div class="koozie-title">Koozie #<span class="koozie-number"></span></div>
+        <button type="button" class="btn btn-outline btn-small remove-koozie-btn">Remove</button>
+      </div>
+
+      <div class="grid-2">
+        <div>
+          <label>Lodge number *</label>
+          <input type="text" class="koozie-lodge" placeholder="e.g. 2524" required />
+        </div>
+        <div>
+          <label>Member name on this koozie *</label>
+          <input type="text" class="koozie-member-name" placeholder="Rider’s actual name" required />
+        </div>
+      </div>
+
+      <div style="margin-top: 0.5rem;">
+        <label>Road name on this koozie *</label>
+        <input type="text" class="koozie-road-name" placeholder="e.g. “KLOWN”" required />
+      </div>
+
+      <div class="grid-2" style="margin-top: 0.5rem;">
+        <div>
+          <label>Officer title</label>
+          <select class="koozie-officer">
+            <option value="">None</option>
+            <option value="President">President</option>
+            <option value="Vice President">Vice President</option>
+            <option value="Sergeant At Arms">Sergeant At Arms</option>
+            <option value="Financial Secretary">Financial Secretary</option>
+            <option value="Road Captain">Road Captain</option>
+            <option value="Other">Other (type below)</option>
+          </select>
+        </div>
+        <div>
+          <label>Custom officer title (if “Other”)</label>
+          <input type="text" class="koozie-officer-custom" placeholder="e.g. Chaplain, Tailgunner" />
+        </div>
+      </div>
+
+      <div style="margin-top: 0.4rem;">
+        <div class="checkbox-row">
+          <label class="inline-row">
+            <input type="checkbox" class="koozie-founding" />
+            <span>Show “Founding Member” on this koozie</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="subtle" style="margin-top: 0.3rem;">
+        <span class="pill">Elks Riders: $15 • KLOWN/materials: $15</span>
+      </div>
+    </div>
+  </template>
+
+  <script>
+    (function () {
+      const PRICE_PER_KOOZIE = 30;
+      const DONATION_PER_KOOZIE = 15;
+      const MATERIALS_PER_KOOZIE = 15;
+      const SHIPPING_FLAT = 5;
+      const MAX_KOOZIES = 10;
+      const ORDER_EMAIL = "pnw.klown@gmail.com";
+
+      const koozieList = document.getElementById("koozie-list");
+      const koozieTemplate = document.getElementById("koozie-template");
+      const addKoozieBtn = document.getElementById("add-koozie-btn");
+
+      const qtyEl = document.getElementById("summary-qty");
+      const subtotalEl = document.getElementById("summary-subtotal");
+      const donationEl = document.getElementById("summary-donation");
+      const materialsEl = document.getElementById("summary-materials");
+      const shippingEl = document.getElementById("summary-shipping");
+      const totalEl = document.getElementById("summary-total");
+
+      const previewText = document.getElementById("preview-text");
+      const form = document.getElementById("order-form");
+
+      let koozieCount = 0;
+
+      function addKoozie() {
+        if (koozieList.children.length >= MAX_KOOZIES) {
+          alert("Maximum of " + MAX_KOOZIES + " koozies per order. For more, please submit an additional order form or contact KLOWN.");
+          return;
+        }
+
+        koozieCount++;
+        const clone = koozieTemplate.content.cloneNode(true);
+        const item = clone.querySelector(".koozie-item");
+        item.dataset.index = koozieCount;
+        item.querySelector(".koozie-number").textContent = koozieCount;
+
+        const removeBtn = item.querySelector(".remove-koozie-btn");
+        removeBtn.addEventListener("click", () => {
+          if (koozieList.children.length === 1) {
+            alert("You must have at least one koozie in the order.");
+            return;
+          }
+          item.remove();
+          renumberKoozies();
+          updateTotalsAndPreview();
+        });
+
+        const officerSelect = item.querySelector(".koozie-officer");
+        const customInput = item.querySelector(".koozie-officer-custom");
+        officerSelect.addEventListener("change", () => {
+          if (officerSelect.value === "Other") {
+            customInput.focus();
+          }
+          updateTotalsAndPreview();
+        });
+
+        // Update preview when any field in this koozie changes
+        item.addEventListener("input", updateTotalsAndPreview);
+        koozieList.appendChild(clone);
+        renumberKoozies();
+        updateTotalsAndPreview();
+      }
+
+      function renumberKoozies() {
+        Array.from(koozieList.children).forEach((item, index) => {
+          item.dataset.index = index + 1;
+          const numSpan = item.querySelector(".koozie-number");
+          if (numSpan) numSpan.textContent = index + 1;
+        });
+      }
+
+      function getKoozieData() {
+        const items = [];
+        Array.from(koozieList.children).forEach((item) => {
+          const lodge = item.querySelector(".koozie-lodge").value.trim();
+          const memberName = item.querySelector(".koozie-member-name").value.trim();
+          const roadName = item.querySelector(".koozie-road-name").value.trim();
+          const officer = item.querySelector(".koozie-officer").value;
+          const officerCustom = item.querySelector(".koozie-officer-custom").value.trim();
+          const founding = item.querySelector(".koozie-founding").checked;
+
+          items.push({
+            lodge,
+            memberName,
+            roadName,
+            officer,
+            officerCustom,
+            founding,
+          });
+        });
+        return items;
+      }
+
+      function updateTotalsAndPreview() {
+        const items = getKoozieData();
+        const qty = items.length;
+        const subtotal = qty * PRICE_PER_KOOZIE;
+        const donation = qty * DONATION_PER_KOOZIE;
+        const materials = qty * MATERIALS_PER_KOOZIE;
+
+        const shippingOption = document.querySelector('input[name="shipping-option"]:checked')?.value || "ship";
+        let shipping = 0;
+        if (shippingOption === "ship" && qty > 0) {
+          shipping = SHIPPING_FLAT;
+        }
+
+        const total = subtotal + shipping;
+
+        qtyEl.textContent = qty;
+        subtotalEl.textContent = subtotal.toFixed(2);
+        donationEl.textContent = donation.toFixed(2);
+        materialsEl.textContent = materials.toFixed(2);
+        shippingEl.textContent = shipping.toFixed(2);
+        totalEl.textContent = total.toFixed(2);
+
+        // Update the preview text area
+        previewText.value = buildEmailBody(items, subtotal, donation, materials, shipping, total);
+      }
+
+      function buildEmailBody(items, subtotal, donation, materials, shipping, total) {
+        const name = document.getElementById("customer-name").value.trim();
+        const email = document.getElementById("customer-email").value.trim();
+        const phone = document.getElementById("customer-phone").value.trim();
+        const homeLodge = document.getElementById("home-lodge-number").value.trim();
+        const shippingAddress = document.getElementById("shipping-address").value.trim();
+        const shippingOption = document.querySelector('input[name="shipping-option"]:checked')?.value || "ship";
+
+        let lines = [];
+
+        lines.push("Elks Riders Leather Koozie Order");
+        lines.push("================================");
+        lines.push("");
+        lines.push("Order date: " + new Date().toLocaleString());
+        lines.push("");
+        lines.push("Customer & Shipping Details");
+        lines.push("---------------------------");
+        lines.push("Customer name (person placing this order): " + (name || ""));
+        lines.push("Email: " + (email || ""));
+        if (phone) lines.push("Phone: " + phone);
+        if (homeLodge) lines.push("Home Lodge: " + homeLodge);
+        lines.push("Shipping choice: " + (shippingOption === "ship" ? "Ship via USPS flat-rate" : "Local pickup / arrange with KLOWN"));
+        if (shippingOption === "ship" && shippingAddress) {
+          lines.push("Shipping address:");
+          lines.push(shippingAddress);
+        }
+        lines.push("");
+
+        lines.push("Koozie Details (" + items.length + " total)");
+        lines.push("--------------------------------");
+        items.forEach((item, index) => {
+          lines.push("");
+          lines.push("Koozie #" + (index + 1));
+          lines.push("  Lodge #: " + (item.lodge || ""));
+          lines.push("  Member name: " + (item.memberName || ""));
+          lines.push("  Road name: " + (item.roadName || ""));
+          let officerTitle = "";
+          if (item.officer === "Other" && item.officerCustom) {
+            officerTitle = item.officerCustom;
+          } else if (item.officer) {
+            officerTitle = item.officer;
+          }
+          if (officerTitle) lines.push("  Officer title: " + officerTitle);
+          lines.push("  Founding Member: " + (item.founding ? "YES" : "No"));
+        });
+
+        lines.push("");
+        lines.push("Pricing & Allocation Summary");
+        lines.push("----------------------------");
+        lines.push("Quantity: " + items.length + " koozie(s)");
+        lines.push("Subtotal (@ $30 each): $" + subtotal.toFixed(2));
+        lines.push("Amount to Forks Elks Riders #2524 general funds (@ $15 each): $" + donation.toFixed(2));
+        lines.push("Amount to KLOWN for materials (@ $15 each): $" + materials.toFixed(2));
+        lines.push("Shipping: $" + shipping.toFixed(2));
+        lines.push("Total to be invoiced: $" + total.toFixed(2));
+        lines.push("");
+        lines.push("Payment Information (PayPal Only)");
+        lines.push("---------------------------------");
+        lines.push("KLOWN will send a PayPal invoice for $" + total.toFixed(2) + " once your order is ready to begin.");
+        lines.push("Please do not send any payment until you receive that invoice.");
+        lines.push("The invoice will identify this as your Elks Riders leather koozie order.");
+        lines.push("");
+        lines.push("If you require more than 10 koozies, an additional order form may be submitted for the extra items.");
+        lines.push("");
+        lines.push("Thank you for supporting Forks Elks Riders #2524!");
+
+        return lines.join("\n");
+      }
+
+      addKoozieBtn.addEventListener("click", addKoozie);
+
+      document.addEventListener("change", (e) => {
+        if (e.target.name === "shipping-option") {
+          updateTotalsAndPreview();
+        }
+      });
+
+      document.addEventListener("input", (e) => {
+        if (
+          e.target.closest(".koozie-item") ||
+          e.target.id === "customer-name" ||
+          e.target.id === "customer-email" ||
+          e.target.id === "customer-phone" ||
+          e.target.id === "home-lodge-number" ||
+          e.target.id === "shipping-address"
+        ) {
+          updateTotalsAndPreview();
+        }
+      });
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const items = getKoozieData();
+
+        if (items.length === 0) {
+          alert("Please add at least one koozie to your order.");
+          return;
+        }
+
+        // Validate per-koozie required fields
+        for (let i = 0; i < items.length; i++) {
+          if (!items[i].lodge || !items[i].memberName || !items[i].roadName) {
+            alert("Koozie #" + (i + 1) + " is missing Lodge number, Member name, or Road name.");
+            return;
+          }
+        }
+
+        const name = document.getElementById("customer-name").value.trim();
+        const email = document.getElementById("customer-email").value.trim();
+        const shippingAddress = document.getElementById("shipping-address").value.trim();
+        const shippingOption = document.querySelector('input[name="shipping-option"]:checked')?.value || "ship";
+
+        if (!name || !email) {
+          alert("Please fill in your name and email.");
+          return;
+        }
+
+        if (shippingOption === "ship" && !shippingAddress) {
+          alert("Please enter a shipping address or choose local pickup.");
+          return;
+        }
+
+        // Recompute totals to keep in sync
+        const qty = items.length;
+        const subtotal = qty * PRICE_PER_KOOZIE;
+        const donation = qty * DONATION_PER_KOOZIE;
+        const materials = qty * MATERIALS_PER_KOOZIE;
+        const shipping = shippingOption === "ship" && qty > 0 ? SHIPPING_FLAT : 0;
+        const total = subtotal + shipping;
+
+        const emailBody = buildEmailBody(items, subtotal, donation, materials, shipping, total);
+        const subject = "Elks Riders Koozie Order - " + name + " (" + qty + " koozie(s))";
+
+        // Update preview in case it isn't already
+        previewText.value = emailBody;
+
+        const mailtoLink =
+          "mailto:" +
+          encodeURIComponent(ORDER_EMAIL) +
+          "?subject=" +
+          encodeURIComponent(subject) +
+          "&body=" +
+          encodeURIComponent(emailBody);
+
+        // Open default email client
+        window.location.href = mailtoLink;
+      });
+
+      // Initialize with one koozie
+      addKoozie();
+    })();
+  </script>
+</body>
+</html>
+
