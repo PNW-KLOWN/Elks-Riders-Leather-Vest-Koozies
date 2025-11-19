@@ -6,11 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     :root {
-      --bg: #020617;          /* darker blue-black page background */
+      --bg: #020617;          /* dark blue-black page background */
       --card: #ffffff;
-      --accent: #001b4d;      /* deep navy */
-      --accent-light: #2563eb;
-      --border: #334155;
+      --accent: #2563eb;      /* link-style blue */
+      --accent-light: #60a5fa;
+      --border: #475569;
       --text: #0f172a;
     }
 
@@ -70,7 +70,7 @@
     }
 
     .highlight {
-      background: #001b4d;  /* dark navy */
+      background: var(--accent);
       border-left: 4px solid var(--accent-light);
       padding: 0.75rem 1rem;
       border-radius: 8px;
@@ -153,7 +153,7 @@
 
     .badge {
       font-size: 0.8rem;
-      background: #001b4d;
+      background: var(--accent);
       color: #ffffff;
       padding: 0.1rem 0.55rem;
       border-radius: 999px;
@@ -172,7 +172,7 @@
       border-radius: 10px;
       border: 1px solid var(--border);
       padding: 0.9rem 0.9rem 0.75rem;
-      background: #0f172a;
+      background: var(--accent);
       color: #e5e7eb;
       position: relative;
     }
@@ -188,14 +188,6 @@
       font-size: 0.98rem;
       font-weight: 600;
       color: #e5e7eb;
-    }
-
-    .pill {
-      font-size: 0.8rem;
-      padding: 0.05rem 0.5rem;
-      border-radius: 999px;
-      background: #001b4d;
-      color: #ffffff;
     }
 
     .btn {
@@ -228,13 +220,15 @@
     .btn-outline {
       background: transparent;
       color: var(--accent);
-      border-color: var(--accent-light);
+      border-color: var(--accent);
+      font-weight: 600;
       box-shadow: none;
     }
 
     .btn-outline:hover {
-      background: #0b1120;
-      color: #e5e7eb;
+      background: rgba(37, 99, 235, 0.12);
+      color: #ffffff;
+      border-color: var(--accent);
     }
 
     .btn-small {
@@ -274,7 +268,7 @@
 
     .preview-box {
       margin-top: 0.9rem;
-      background: #001b4d;
+      background: var(--accent);
       border-radius: 8px;
       padding: 0.75rem 1rem;
       border: 1px solid var(--accent-light);
@@ -295,6 +289,24 @@
       color: #e5e7eb;
     }
 
+    .koozie-photos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+      margin-bottom: 1.25rem;
+      justify-content: center;
+    }
+
+    .koozie-photos img {
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      max-width: 30%;
+      height: auto;
+      object-fit: cover;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.35);
+    }
+
     @media (max-width: 640px) {
       .actions-row {
         flex-direction: column;
@@ -306,6 +318,9 @@
       .btn {
         justify-content: center;
         width: 100%;
+      }
+      .koozie-photos img {
+        max-width: 100%;
       }
     }
   </style>
@@ -336,6 +351,13 @@
       </header>
 
       <form id="order-form">
+        <h2>Koozie Photos</h2>
+        <div class="koozie-photos">
+          <img src="koozie-back.jpg" alt="Back of the Elks Riders leather koozie" />
+          <img src="koozie-front.jpg" alt="Front of the Elks Riders leather koozie" />
+          <img src="koozie-on-can.jpg" alt="Koozie shown on a can" />
+        </div>
+
         <!-- CUSTOMER INFO -->
         <h2>Customer & Shipping Details</h2>
         <div class="grid-2">
@@ -399,7 +421,7 @@
           <!-- Koozies are injected here by JS -->
         </div>
 
-        <button type="button" class="btn btn-outline btn-small" id="add-koozie-btn">
+        <button type="button" class="btn btn-small" id="add-koozie-btn">
           + Add another koozie (max 10 per order)
         </button>
 
@@ -492,10 +514,6 @@
             <span>Show “Founding Member” on this koozie</span>
           </label>
         </div>
-      </div>
-
-      <div class="subtle" style="margin-top: 0.3rem; color: #e5e7eb;">
-        <span class="pill">Elks Riders: $15 • KLOWN/materials: $15</span>
       </div>
     </div>
   </template>
