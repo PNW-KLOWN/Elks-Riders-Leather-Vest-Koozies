@@ -6,12 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     :root {
-      --bg: #f3f6ff;
+      --bg: #020617;          /* darker blue-black page background */
       --card: #ffffff;
-      --accent: #0b3c7d;
-      --accent-light: #4a86e8;
-      --border: #c8d4f2;
-      --text: #102033;
+      --accent: #001b4d;      /* deep navy */
+      --accent-light: #2563eb;
+      --border: #334155;
+      --text: #0f172a;
     }
 
     * {
@@ -36,7 +36,7 @@
       background: var(--card);
       border-radius: 12px;
       padding: 1.75rem;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.35);
       border: 1px solid var(--border);
     }
 
@@ -66,16 +66,21 @@
 
     .subtle {
       font-size: 0.9rem;
-      color: #4a5670;
+      color: #4b5563;
     }
 
     .highlight {
-      background: #eef3ff;
+      background: #001b4d;  /* dark navy */
       border-left: 4px solid var(--accent-light);
       padding: 0.75rem 1rem;
       border-radius: 8px;
       margin: 1rem 0;
       font-size: 0.95rem;
+      color: #ffffff;
+    }
+
+    .highlight strong {
+      color: #e5e7eb;
     }
 
     form {
@@ -107,14 +112,15 @@
       font-size: 0.95rem;
       outline: none;
       transition: border-color 0.15s ease, box-shadow 0.15s ease;
-      background-color: #f9fbff;
+      background-color: #f9fafb;
+      color: var(--text);
     }
 
     input:focus,
     textarea:focus,
     select:focus {
       border-color: var(--accent-light);
-      box-shadow: 0 0 0 2px rgba(74,134,232,0.3);
+      box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.4);
     }
 
     textarea {
@@ -147,8 +153,8 @@
 
     .badge {
       font-size: 0.8rem;
-      background: var(--accent);
-      color: #fff;
+      background: #001b4d;
+      color: #ffffff;
       padding: 0.1rem 0.55rem;
       border-radius: 999px;
       letter-spacing: 0.04em;
@@ -166,7 +172,8 @@
       border-radius: 10px;
       border: 1px solid var(--border);
       padding: 0.9rem 0.9rem 0.75rem;
-      background: #f7f9ff;
+      background: #0f172a;
+      color: #e5e7eb;
       position: relative;
     }
 
@@ -180,15 +187,15 @@
     .koozie-title {
       font-size: 0.98rem;
       font-weight: 600;
-      color: var(--accent);
+      color: #e5e7eb;
     }
 
     .pill {
       font-size: 0.8rem;
       padding: 0.05rem 0.5rem;
       border-radius: 999px;
-      background: #dbe5ff;
-      color: var(--accent);
+      background: #001b4d;
+      color: #ffffff;
     }
 
     .btn {
@@ -200,7 +207,7 @@
       border-radius: 999px;
       border: 1px solid transparent;
       background: var(--accent);
-      color: #fff;
+      color: #ffffff;
       font-size: 0.95rem;
       cursor: pointer;
       text-decoration: none;
@@ -208,8 +215,8 @@
     }
 
     .btn:hover {
-      background: #0c4c9a;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.18);
+      background: #1d4ed8;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.35);
       transform: translateY(-1px);
     }
 
@@ -226,7 +233,8 @@
     }
 
     .btn-outline:hover {
-      background: #e7efff;
+      background: #0b1120;
+      color: #e5e7eb;
     }
 
     .btn-small {
@@ -256,7 +264,7 @@
     .footer-text {
       margin-top: 1.1rem;
       font-size: 0.85rem;
-      color: #4a5670;
+      color: #4b5563;
     }
 
     .footer-text span {
@@ -266,10 +274,15 @@
 
     .preview-box {
       margin-top: 0.9rem;
-      background: #f0f4ff;
+      background: #001b4d;
       border-radius: 8px;
       padding: 0.75rem 1rem;
-      border: 1px solid var(--border);
+      border: 1px solid var(--accent-light);
+      color: #ffffff;
+    }
+
+    .preview-box label {
+      color: #e5e7eb;
     }
 
     .preview-box textarea {
@@ -279,6 +292,7 @@
       border: none;
       padding: 0;
       min-height: 120px;
+      color: #e5e7eb;
     }
 
     @media (max-width: 640px) {
@@ -316,7 +330,8 @@
           When you submit this form, your email program will open with all order details filled in and addressed to
           <strong>pnw.klown@gmail.com</strong>.<br />
           You will receive a <strong>PayPal invoice</strong> once your order is ready to begin. Please <strong>do not send any payment</strong>
-          until you receive that invoice. If you have not received an invoice within two weeks, please email pnw.klown@gmail.com to request an update on the status of your order.
+          until you receive that invoice. If you have not received an invoice within two weeks, please email
+          <strong>pnw.klown@gmail.com</strong> to request an update on the status of your order.
         </p>
       </header>
 
@@ -364,14 +379,19 @@
           </div>
         </div>
 
+        <p class="subtle" style="margin-top: 0.5rem;">
+          All information you provide is kept private and will never be shared or sold. You will only be contacted by KLOWN,
+          and only regarding communication about your order.
+        </p>
+
         <!-- KOOZIE ITEMS -->
         <div class="section-header">
           <h2>Koozie Personalization</h2>
           <span class="badge">Each one can be unique</span>
         </div>
         <p class="subtle">
-          Add a separate entry for each koozie. Each koozie has the rider’s <strong>member name</strong> and separate
-          <strong>road name</strong>, plus Lodge number, officer title, and “Founding Member” if needed.
+          Add a separate entry for each koozie. Each koozie can have a unique <strong>road name</strong>, plus Lodge number,
+          officer title, and “Founding Member” if needed.
           If you need more than <strong>10 koozies</strong>, please submit an additional order form for the extra items.
         </p>
 
@@ -420,7 +440,8 @@
 
         <p class="footer-text">
           <span>Note:</span> This site does not process online payments. Orders are completed by emailing your details.
-          Payment is made only after you receive a PayPal invoice from KLOWN.
+          Payment is made only after you receive a PayPal invoice from KLOWN. Your contact information is used solely
+          for communication about this order and is never shared or sold.
         </p>
       </form>
     </div>
@@ -440,14 +461,9 @@
           <input type="text" class="koozie-lodge" placeholder="e.g. 2524" required />
         </div>
         <div>
-          <label>Member name on this koozie *</label>
-          <input type="text" class="koozie-member-name" placeholder="Rider’s actual name" required />
+          <label>Road name on this koozie *</label>
+          <input type="text" class="koozie-road-name" placeholder="e.g. “KLOWN”" required />
         </div>
-      </div>
-
-      <div style="margin-top: 0.5rem;">
-        <label>Road name on this koozie *</label>
-        <input type="text" class="koozie-road-name" placeholder="e.g. “KLOWN”" required />
       </div>
 
       <div class="grid-2" style="margin-top: 0.5rem;">
@@ -478,7 +494,7 @@
         </div>
       </div>
 
-      <div class="subtle" style="margin-top: 0.3rem;">
+      <div class="subtle" style="margin-top: 0.3rem; color: #e5e7eb;">
         <span class="pill">Elks Riders: $15 • KLOWN/materials: $15</span>
       </div>
     </div>
@@ -560,7 +576,6 @@
         const items = [];
         Array.from(koozieList.children).forEach((item) => {
           const lodge = item.querySelector(".koozie-lodge").value.trim();
-          const memberName = item.querySelector(".koozie-member-name").value.trim();
           const roadName = item.querySelector(".koozie-road-name").value.trim();
           const officer = item.querySelector(".koozie-officer").value;
           const officerCustom = item.querySelector(".koozie-officer-custom").value.trim();
@@ -568,7 +583,6 @@
 
           items.push({
             lodge,
-            memberName,
             roadName,
             officer,
             officerCustom,
@@ -631,14 +645,12 @@
           lines.push(shippingAddress);
         }
         lines.push("");
-
         lines.push("Koozie Details (" + items.length + " total)");
         lines.push("--------------------------------");
         items.forEach((item, index) => {
           lines.push("");
           lines.push("Koozie #" + (index + 1));
           lines.push("  Lodge #: " + (item.lodge || ""));
-          lines.push("  Member name: " + (item.memberName || ""));
           lines.push("  Road name: " + (item.roadName || ""));
           let officerTitle = "";
           if (item.officer === "Other" && item.officerCustom) {
@@ -667,6 +679,11 @@
         lines.push("The invoice will identify this as your Elks Riders leather koozie order.");
         lines.push("");
         lines.push("If you require more than 10 koozies, an additional order form may be submitted for the extra items.");
+        lines.push("");
+        lines.push("Privacy & Contact");
+        lines.push("-----------------");
+        lines.push("Your information is kept private and will never be shared or sold.");
+        lines.push("You will only be contacted by KLOWN regarding this order.");
         lines.push("");
         lines.push("Thank you for supporting Forks Elks Riders #2524!");
 
@@ -705,8 +722,8 @@
 
         // Validate per-koozie required fields
         for (let i = 0; i < items.length; i++) {
-          if (!items[i].lodge || !items[i].memberName || !items[i].roadName) {
-            alert("Koozie #" + (i + 1) + " is missing Lodge number, Member name, or Road name.");
+          if (!items[i].lodge || !items[i].roadName) {
+            alert("Koozie #" + (i + 1) + " is missing Lodge number or Road name.");
             return;
           }
         }
@@ -758,4 +775,3 @@
   </script>
 </body>
 </html>
-
