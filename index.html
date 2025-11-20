@@ -344,7 +344,8 @@
           Handmade by <strong>“KLOWN”</strong>, the current president and one of the founding members of Forks Elks Riders #2524.<br />
           When you submit this form, your email program will open with all order details filled in and addressed to
           <strong>pnw.klown@gmail.com</strong>.<br />
-          
+          <div style="height: 1rem;"></div>
+
           You will receive a <strong>PayPal invoice</strong> once your order is ready to begin. Please <strong>do not send any payment</strong>
           until you receive that invoice. If you have not received an invoice within two weeks, please email
           <strong>pnw.klown@gmail.com</strong> to request an update on the status of your order.
@@ -374,10 +375,11 @@
             <label for="customer-phone">Phone (optional)</label>
             <input type="text" id="customer-phone" />
           </div>
-          <div>
-            <label for="home-lodge-number">Your Home Elks Lodge Number</label>
-            <input type="text" id="home-lodge-number" placeholder="e.g. 2524" />
-          </div>
+         <div>
+  <label for="home-lodge-number">Your Home Elks Lodge Name & Number</label>
+  <input type="text" id="home-lodge-number" placeholder="e.g. Forks 2524" />
+</div>
+
         </div>
 
         <div class="grid-2" style="margin-top: 0.75rem;">
@@ -681,7 +683,8 @@ previewText.value = buildEmailBody(items, subtotal, donation, materials, shippin
         lines.push("Customer name (person placing this order): " + (name || ""));
         lines.push("Email: " + (email || ""));
         if (phone) lines.push("Phone: " + phone);
-        if (homeLodge) lines.push("Home Lodge: " + homeLodge);
+       if (homeLodge) lines.push("Home Lodge Name & Number: " + homeLodge);
+
         lines.push("Shipping choice: " + (shippingOption === "ship" ? "Ship via USPS flat-rate" : "Local pickup / arrange with KLOWN"));
         if (shippingOption === "ship" && shippingAddress) {
           lines.push("Shipping address:");
