@@ -399,6 +399,10 @@
                 <span>Local pickup / arrange directly with KLOWN (no shipping charge)</span>
               </label>
             </div>
+            <p class="subtle" style="margin-top: 0.5rem;">
+  Shipped orders include a PayPal processing fee of 2.9% + $0.30 in the total above. Local pickup orders may be paid in cash and do not include this fee.
+</p>
+
           </div>
         </div>
 
@@ -429,15 +433,17 @@
         <!-- TOTALS -->
         <h2>Order Summary</h2>
         <div class="totals" id="totals">
-          <div><strong>Quantity:</strong> <span id="summary-qty">0</span> koozie(s)</div>
-          <div><strong>Subtotal:</strong> $<span id="summary-subtotal">0</span></div>
-          <div><strong>To Elks Riders #2524 general funds:</strong> $<span id="summary-donation">0</span></div>
-          <div><strong>To KLOWN for materials:</strong> $<span id="summary-materials">0</span></div>
-          <div><strong>Shipping:</strong> $<span id="summary-shipping">0</span></div>
-          <div style="margin-top: 0.35rem;">
-            <strong>Total amount to be invoiced:</strong> $<span id="summary-total">0</span>
-          </div>
-        </div>
+  <div><strong>Quantity:</strong> <span id="summary-qty">0</span> koozie(s)</div>
+  <div><strong>Subtotal:</strong> $<span id="summary-subtotal">0</span></div>
+  <div><strong>To Elks Riders #2524 general funds:</strong> $<span id="summary-donation">0</span></div>
+  <div><strong>To KLOWN for materials:</strong> $<span id="summary-materials">0</span></div>
+  <div><strong>Shipping:</strong> $<span id="summary-shipping">0</span></div>
+  <div><strong>PayPal processing fee (shipped orders only):</strong> $<span id="summary-paypal">0</span></div>
+  <div style="margin-top: 0.35rem;">
+    <strong>Total amount to be invoiced:</strong> $<span id="summary-total">0</span>
+  </div>
+</div>
+
 
         <!-- PREVIEW (for copying if email client has issues) -->
         <div class="preview-box">
@@ -525,22 +531,27 @@
   <script>
     (function () {
       const PRICE_PER_KOOZIE = 30;
-      const DONATION_PER_KOOZIE = 15;
-      const MATERIALS_PER_KOOZIE = 15;
-      const SHIPPING_FLAT = 5;
-      const MAX_KOOZIES = 10;
-      const ORDER_EMAIL = "pnw.klown@gmail.com";
+const DONATION_PER_KOOZIE = 15;
+const MATERIALS_PER_KOOZIE = 15;
+const SHIPPING_FLAT = 5;   // flat USPS shipping
+const PAYPAL_PERCENT = 0.029; // 2.9%
+const PAYPAL_FIXED = 0.30;    // $0.30 per order
+const MAX_KOOZIES = 10;
+const ORDER_EMAIL = "pnw.klown@gmail.com";
+
 
       const koozieList = document.getElementById("koozie-list");
       const koozieTemplate = document.getElementById("koozie-template");
       const addKoozieBtn = document.getElementById("add-koozie-btn");
 
       const qtyEl = document.getElementById("summary-qty");
-      const subtotalEl = document.getElementById("summary-subtotal");
-      const donationEl = document.getElementById("summary-donation");
-      const materialsEl = document.getElementById("summary-materials");
-      const shippingEl = document.getElementById("summary-shipping");
-      const totalEl = document.getElementById("summary-total");
+const subtotalEl = document.getElementById("summary-subtotal");
+const donationEl = document.getElementById("summary-donation");
+const materialsEl = document.getElementById("summary-materials");
+const shippingEl = document.getElementById("summary-shipping");
+const paypalEl = document.getElementById("summary-paypal");
+const totalEl = document.getElementById("summary-total");
+
 
       const previewText = document.getElementById("preview-text");
       const form = document.getElementById("order-form");
@@ -615,32 +626,42 @@
       }
 
       function updateTotalsAndPreview() {
-        const items = getKoozieData();
-        const qty = items.length;
-        const subtotal = qty * PRICE_PER_KOOZIE;
-        const donation = qty * DONATION_PER_KOOZIE;
-        const materials = qty * MATERIALS_PER_KOOZIE;
+       const items = getKoozieData();
+const qty = items.length;
+const subtotal = qty * PRICE_PER_KOOZIE;
+const donation = qty * DONATION_PER_KOOZIE;
+const materials = qty * MATERIALS_PER_KOOZIE;
 
-        const shippingOption = document.querySelector('input[name="shipping-option"]:checked')?.value || "ship";
-        let shipping = 0;
-        if (shippingOption === "ship" && qty > 0) {
-          shipping = SHIPPING_FLAT;
-        }
+const shippingOption = document.querySelector('input[name="shipping-option"]:checked')?.value || "ship";
+let shipping = 0;
+if (shippingOption === "ship" && qty > 0) {
+  shipping = SHIPPING_FLAT;
+}
 
-        const total = subtotal + shipping;
+// PayPal fee: applies ONLY to shipped orders
+let paypalFee = 0;
+if (shippingOption === "ship" && qty > 0) {
+  paypalFee = subtotal * PAYPAL_PERCENT + PAYPAL_FIXED;
+}
+
+const total = subtotal + shipping + paypalFee;
+
 
         qtyEl.textContent = qty;
-        subtotalEl.textContent = subtotal.toFixed(2);
-        donationEl.textContent = donation.toFixed(2);
-        materialsEl.textContent = materials.toFixed(2);
-        shippingEl.textContent = shipping.toFixed(2);
-        totalEl.textContent = total.toFixed(2);
+subtotalEl.textContent = subtotal.toFixed(2);
+donationEl.textContent = donation.toFixed(2);
+materialsEl.textContent = materials.toFixed(2);
+shippingEl.textContent = shipping.toFixed(2);
+paypalEl.textContent = paypalFee.toFixed(2);
+totalEl.textContent = total.toFixed(2);
 
-        // Update the preview text area
-        previewText.value = buildEmailBody(items, subtotal, donation, materials, shipping, total);
+// Update the preview text area
+previewText.value = buildEmailBody(items, subtotal, donation, materials, shipping, paypalFee, total);
+
       }
 
-      function buildEmailBody(items, subtotal, donation, materials, shipping, total) {
+     function buildEmailBody(items, subtotal, donation, materials, shipping, paypalFee, total) {
+
         const name = document.getElementById("customer-name").value.trim();
         const email = document.getElementById("customer-email").value.trim();
         const phone = document.getElementById("customer-phone").value.trim();
@@ -692,15 +713,20 @@
         lines.push("Amount to Forks Elks Riders #2524 general funds (@ $15 each): $" + donation.toFixed(2));
         lines.push("Amount to KLOWN for materials (@ $15 each): $" + materials.toFixed(2));
         lines.push("Shipping: $" + shipping.toFixed(2));
-        lines.push("Total to be invoiced: $" + total.toFixed(2));
+lines.push("PayPal processing fee (shipped orders only): $" + paypalFee.toFixed(2));
+lines.push("Total to be invoiced: $" + total.toFixed(2));
+
         lines.push("");
-        lines.push("Payment Information (PayPal Only)");
-        lines.push("---------------------------------");
-        lines.push("KLOWN will send a PayPal invoice for $" + total.toFixed(2) + " once your order is ready to begin.");
-        lines.push("Please do not send any payment until you receive that invoice.");
-        lines.push("The invoice will identify this as your Elks Riders leather koozie order.");
-        lines.push("");
-        lines.push("If you require more than 10 koozies, an additional order form may be submitted for the extra items.");
+        lines.push("Payment Information");
+lines.push("-------------------");
+lines.push("For shipped orders, payment is collected by PayPal. The total above includes a PayPal processing fee of 2.9% + $0.30.");
+lines.push("Local pickup orders may be paid in cash and will not incur this PayPal fee.");
+lines.push("KLOWN will send a PayPal invoice for $" + total.toFixed(2) + " once your order is ready to begin (for shipped orders).");
+lines.push("Please do not send any payment until you receive that invoice.");
+lines.push("The invoice will identify this as your Elks Riders leather koozie order.");
+lines.push("");
+lines.push("If you require more than 10 koozies, an additional order form may be submitted for the extra items.");
+
         lines.push("");
         lines.push("Privacy & Contact");
         lines.push("-----------------");
@@ -765,15 +791,22 @@
           return;
         }
 
-        // Recompute totals to keep in sync
-        const qty = items.length;
-        const subtotal = qty * PRICE_PER_KOOZIE;
-        const donation = qty * DONATION_PER_KOOZIE;
-        const materials = qty * MATERIALS_PER_KOOZIE;
-        const shipping = shippingOption === "ship" && qty > 0 ? SHIPPING_FLAT : 0;
-        const total = subtotal + shipping;
+       // Recompute totals to keep in sync
+const qty = items.length;
+const subtotal = qty * PRICE_PER_KOOZIE;
+const donation = qty * DONATION_PER_KOOZIE;
+const materials = qty * MATERIALS_PER_KOOZIE;
+const shipping = shippingOption === "ship" && qty > 0 ? SHIPPING_FLAT : 0;
 
-        const emailBody = buildEmailBody(items, subtotal, donation, materials, shipping, total);
+let paypalFee = 0;
+if (shippingOption === "ship" && qty > 0) {
+  paypalFee = subtotal * PAYPAL_PERCENT + PAYPAL_FIXED;
+}
+
+const total = subtotal + shipping + paypalFee;
+
+const emailBody = buildEmailBody(items, subtotal, donation, materials, shipping, paypalFee, total);
+
         const subject = "Elks Riders Koozie Order - " + name + " (" + qty + " koozie(s))";
 
         // Update preview in case it isn't already
