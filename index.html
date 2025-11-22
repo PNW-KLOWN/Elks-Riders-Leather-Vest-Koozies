@@ -470,33 +470,47 @@
           + Add another koozie (max 10 per order)
         </button>
 
-        <!-- TOTALS -->
+        <!-- ORDER SUMMARY -->
         <h2>Order Summary</h2>
+
+        <!-- Donation info moved OUTSIDE the calculations -->
+        <div class="subtle" style="margin-bottom: 0.5rem;">
+          <strong>Note:</strong> $10 from each koozie is donated to Forks Elks Riders #2524.
+          Estimated donation for this order: <strong>$<span id="summary-donation">0.00</span></strong>.
+          This donation is included in the koozie price and is not treated as a separate line in the invoice.
+        </div>
+
+        <hr style="border: none; border-top: 1px solid #e5e7eb; margin: 0.75rem 0 0.75rem;" />
+
         <div class="totals" id="totals">
           <div class="totals-row">
             <div class="totals-label"><strong>Quantity:</strong></div>
             <div class="totals-value"><span id="summary-qty">0</span> koozie(s)</div>
           </div>
+
           <div class="totals-row">
             <div class="totals-label"><strong>Subtotal (@ $35 each):</strong></div>
             <div class="totals-value">$<span id="summary-subtotal">0.00</span></div>
           </div>
-          <div class="totals-row">
-            <div class="totals-label">Estimated donation to Forks Elks Riders #2524<br /><span class="subtle">(included in item price, $10 per koozie)</span></div>
-            <div class="totals-value">$<span id="summary-donation">0.00</span></div>
-          </div>
+
           <div class="totals-row">
             <div class="totals-label"><strong>Shipping:</strong></div>
             <div class="totals-value">$<span id="summary-shipping">0.00</span></div>
           </div>
+
           <div class="totals-row">
             <div class="totals-label"><strong>Washington sales tax (items + shipping):</strong></div>
             <div class="totals-value">$<span id="summary-tax">0.00</span></div>
           </div>
+
           <div class="totals-row">
-            <div class="totals-label"><strong>PayPal processing fee (shipped orders only):</strong><br /><span class="subtle">(not subject to sales tax)</span></div>
+            <div class="totals-label">
+              <strong>PayPal fee (shipped orders only):</strong><br />
+              <span class="subtle">(not subject to sales tax)</span>
+            </div>
             <div class="totals-value">$<span id="summary-paypal">0.00</span></div>
           </div>
+
           <div class="totals-row" style="margin-top: 0.4rem;">
             <div class="totals-label"><strong>Total amount to be invoiced:</strong></div>
             <div class="totals-value"><strong>$<span id="summary-total">0.00</span></strong></div>
@@ -568,6 +582,7 @@
             <option value="Sergeant At Arms">Sergeant At Arms</option>
             <option value="Financial Secretary">Financial Secretary</option>
             <option value="Road Captain">Road Captain</option>
+            <option value="Chaplain">Chaplain</option>
             <option value="Other">Other (type below)</option>
           </select>
         </div>
@@ -765,15 +780,20 @@
         });
 
         lines.push("");
-        lines.push("Pricing & Allocation Summary");
-        lines.push("----------------------------");
+        lines.push("Pricing Summary");
+        lines.push("---------------");
         lines.push("Quantity: " + items.length + " koozie(s)");
         lines.push("Subtotal (@ $35 each): $" + subtotal.toFixed(2));
-        lines.push("Estimated donation to Forks Elks Riders #2524 (included in item price, $10 per koozie): $" + donation.toFixed(2));
         lines.push("Shipping: $" + shipping.toFixed(2));
         lines.push("Washington sales tax (items + shipping): $" + salesTax.toFixed(2));
         lines.push("PayPal processing fee (shipped orders only, not subject to sales tax): $" + paypalFee.toFixed(2));
         lines.push("Total to be invoiced: $" + total.toFixed(2));
+
+        lines.push("");
+        lines.push("Donation Information");
+        lines.push("--------------------");
+        lines.push("$10 from each koozie is donated to Forks Elks Riders #2524.");
+        lines.push("Estimated donation for this order (included in item price): $" + donation.toFixed(2));
 
         lines.push("");
         lines.push("Payment Information");
