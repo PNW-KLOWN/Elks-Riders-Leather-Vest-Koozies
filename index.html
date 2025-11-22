@@ -383,8 +383,10 @@
         <p class="subtle">
           When you submit this form, your email program will open with all order details filled in and addressed to
           <strong>pnw.klown@gmail.com</strong>.<br />
+          <br />
           Flat-rate <strong>$5 shipping</strong> is available anywhere in the U.S.
           for up to <strong>10 koozies per order</strong>.
+          <br />
           <br />
           You will receive a <strong>PayPal invoice</strong> once your order is ready to begin. Please <strong>do not send any payment</strong>
           until you receive that invoice. If you have not received an invoice within two weeks, please email
@@ -443,7 +445,7 @@
               <label class="inline-row">
                 <input type="radio" name="shipping-option" value="pickup" />
                 <span>Local pickup at: <strong>Olympic Artforge</strong> <br /> 
-                  located at: 781 S Forks Ave, Forks, WA 98331 (no shipping charge)</span>
+                  located at: <strong>781 S Forks Ave, Forks, WA 98331</strong> (no shipping charge)</span>
               </label>
             </div>
             <p class="subtle" style="margin-top: 0.5rem;">
@@ -506,7 +508,7 @@
           </div>
 
           <div class="totals-row">
-            <div class="totals-label"><strong>Washington sales tax (items + shipping):</strong></div>
+            <div class="totals-label"><strong>8.4% Washington (and local) sales tax (items + shipping):</strong></div>
             <div class="totals-value">$<span id="summary-tax">0.00</span></div>
           </div>
 
@@ -551,7 +553,7 @@
           Payment is made only after you receive a PayPal invoice. Your contact information is used solely
           for communication about this order and is never shared or sold. None of your information is saved on this site; this is
           only a utility designed to form an email with a uniform layout to assist in ordering.
-          Washington sales tax is applied to the item price and shipping, but not to any PayPal processing fees.
+          8.4% Washington (and local) sales tax is applied to the item price and shipping, but not to any PayPal processing fees.
           Pricing may vary depending on changes in material costs, supply availability, or additional labor required to complete orders.
           Orders are not considered accepted, and production will not begin, until a PayPal invoice has been sent and payment has been received.
           All orders are processed on a first-come, first-served basis, and completion times may vary depending on current demand.
@@ -792,7 +794,7 @@
         lines.push("Quantity: " + items.length + " koozie(s)");
         lines.push("Subtotal (@ $35 each): $" + subtotal.toFixed(2));
         lines.push("Shipping: $" + shipping.toFixed(2));
-        lines.push("Washington sales tax (items + shipping): $" + salesTax.toFixed(2));
+        lines.push("8.4% Washington (and local) sales tax (items + shipping): $" + salesTax.toFixed(2));
         lines.push("PayPal processing fee (shipped orders only, not subject to sales tax): $" + paypalFee.toFixed(2));
         lines.push("Total to be invoiced: $" + total.toFixed(2));
 
