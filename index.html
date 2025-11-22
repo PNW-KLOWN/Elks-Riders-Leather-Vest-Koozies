@@ -10,7 +10,7 @@
       --card: #ffffff;
       --accent: #2563eb;      /* link-style blue */
       --accent-light: #60a5fa;
-      --border: #475569;
+      --border: #e5e7eb;
       --text: #0f172a;
     }
 
@@ -22,46 +22,55 @@
       margin: 0;
       padding: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: var(--bg);
+      background: radial-gradient(circle at top, #020617 0, #020617 40%, #020617 100%);
       color: var(--text);
     }
 
     .page {
       max-width: 900px;
-      margin: 2rem auto;
-      padding: 1rem;
+      margin: 2.5rem auto;
+      padding: 0 1rem 2.5rem;
     }
 
     .card {
       background: var(--card);
-      border-radius: 12px;
-      padding: 1.75rem;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.35);
-      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 2rem 1.75rem 2.25rem;
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.55);
+      border: 1px solid #cbd5f5;
+    }
+
+    header {
+      border-bottom: 1px solid #e5e7eb;
+      padding-bottom: 1rem;
+      margin-bottom: 1.25rem;
     }
 
     h1, h2, h3 {
       margin-top: 0;
-      font-weight: 600;
+      font-weight: 650;
       color: var(--accent);
     }
 
     h1 {
-      font-size: 1.9rem;
-      margin-bottom: 0.25rem;
+      font-size: 2rem;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.4rem;
     }
 
     h2 {
-      font-size: 1.3rem;
+      font-size: 1.25rem;
       margin-top: 1.75rem;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 0.35rem;
+      margin-bottom: 0.5rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 1px solid #e5e7eb;
     }
 
     p {
-      line-height: 1.5;
+      line-height: 1.6;
       margin-top: 0.3rem;
-      margin-bottom: 0.7rem;
+      margin-bottom: 0.75rem;
+      color: #111827;
     }
 
     .subtle {
@@ -70,11 +79,11 @@
     }
 
     .highlight {
-      background: var(--accent);
+      background: linear-gradient(135deg, #1d4ed8, #2563eb);
       border-left: 4px solid var(--accent-light);
-      padding: 0.75rem 1rem;
-      border-radius: 8px;
-      margin: 1rem 0;
+      padding: 0.9rem 1.1rem;
+      border-radius: 10px;
+      margin: 1rem 0 1.1rem;
       font-size: 0.95rem;
       color: #ffffff;
     }
@@ -95,9 +104,10 @@
 
     label {
       display: block;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       margin-bottom: 0.25rem;
-      font-weight: 500;
+      font-weight: 550;
+      color: #0f172a;
     }
 
     input[type="text"],
@@ -106,12 +116,12 @@
     textarea,
     select {
       width: 100%;
-      padding: 0.45rem 0.55rem;
+      padding: 0.5rem 0.6rem;
       border-radius: 6px;
       border: 1px solid var(--border);
       font-size: 0.95rem;
       outline: none;
-      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
       background-color: #f9fafb;
       color: var(--text);
     }
@@ -120,7 +130,8 @@
     textarea:focus,
     select:focus {
       border-color: var(--accent-light);
-      box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.4);
+      box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.25);
+      background-color: #ffffff;
     }
 
     textarea {
@@ -132,7 +143,7 @@
     .inline-row {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.4rem;
       flex-wrap: wrap;
       margin-bottom: 0.4rem;
     }
@@ -152,13 +163,14 @@
     }
 
     .badge {
-      font-size: 0.8rem;
-      background: var(--accent);
-      color: #ffffff;
+      font-size: 0.78rem;
+      background: #eff6ff;
+      color: #1d4ed8;
       padding: 0.1rem 0.55rem;
       border-radius: 999px;
       letter-spacing: 0.04em;
       text-transform: uppercase;
+      border: 1px solid #bfdbfe;
     }
 
     .koozie-list {
@@ -170,10 +182,9 @@
 
     .koozie-item {
       border-radius: 10px;
-      border: 1px solid var(--border);
+      border: 1px solid #d1d5db;
       padding: 0.9rem 0.9rem 0.75rem;
-      background: var(--accent);
-      color: #e5e7eb;
+      background: #f9fafb;
       position: relative;
     }
 
@@ -187,7 +198,7 @@
     .koozie-title {
       font-size: 0.98rem;
       font-weight: 600;
-      color: #e5e7eb;
+      color: #111827;
     }
 
     .btn {
@@ -208,7 +219,7 @@
 
     .btn:hover {
       background: #1d4ed8;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.35);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.25);
       transform: translateY(-1px);
     }
 
@@ -218,21 +229,20 @@
     }
 
     .btn-outline {
-  background: #ffffff;       /* white background */
-  color: #000000;            /* black text */
-  border-color: #000000;     /* black border */
-  font-weight: 600;
-}
+      background: #ffffff;
+      color: #000000;
+      border-color: #9ca3af;
+      font-weight: 500;
+    }
 
-.btn-outline:hover {
-  background: var(--accent);   /* turn blue on hover */
-  color: #ffffff;              /* white text on hover */
-  border-color: var(--accent);
-}
-
+    .btn-outline:hover {
+      background: #f3f4f6;
+      color: #111827;
+      border-color: #6b7280;
+    }
 
     .btn-small {
-      padding: 0.25rem 0.65rem;
+      padding: 0.25rem 0.7rem;
       font-size: 0.82rem;
     }
 
@@ -240,14 +250,26 @@
       display: flex;
       flex-wrap: wrap;
       gap: 0.75rem;
-      margin-top: 1rem;
-      align-items: center;
+      margin-top: 1.25rem;
+      align-items: flex-start;
       justify-content: space-between;
     }
 
     .totals {
-      font-size: 0.95rem;
-      line-height: 1.4;
+      font-size: 0.93rem;
+      line-height: 1.5;
+      background: #f9fafb;
+      border-radius: 10px;
+      border: 1px solid #e5e7eb;
+      padding: 0.85rem 1rem;
+      margin-top: 0.3rem;
+    }
+
+    .totals-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 0.15rem;
     }
 
     .totals strong {
@@ -255,8 +277,17 @@
       color: var(--accent);
     }
 
+    .totals-label {
+      color: #374151;
+    }
+
+    .totals-value {
+      font-variant-numeric: tabular-nums;
+      color: #111827;
+    }
+
     .footer-text {
-      margin-top: 1.1rem;
+      margin-top: 1.3rem;
       font-size: 0.85rem;
       color: #4b5563;
     }
@@ -267,16 +298,18 @@
     }
 
     .preview-box {
-      margin-top: 0.9rem;
-      background: var(--accent);
-      border-radius: 8px;
-      padding: 0.75rem 1rem;
-      border: 1px solid var(--accent-light);
+      margin-top: 1rem;
+      background: #0f172a;
+      border-radius: 10px;
+      padding: 0.8rem 1rem;
+      border: 1px solid #1f2937;
       color: #ffffff;
     }
 
     .preview-box label {
       color: #e5e7eb;
+      margin-bottom: 0.35rem;
+      display: block;
     }
 
     .preview-box textarea {
@@ -285,8 +318,9 @@
       background: transparent;
       border: none;
       padding: 0;
-      min-height: 120px;
+      min-height: 130px;
       color: #e5e7eb;
+      width: 100%;
     }
 
     .koozie-photos {
@@ -304,10 +338,14 @@
       max-width: 30%;
       height: auto;
       object-fit: cover;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.35);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+      background: #111827;
     }
 
     @media (max-width: 640px) {
+      .card {
+        padding: 1.5rem 1rem 1.8rem;
+      }
       .actions-row {
         flex-direction: column;
         align-items: stretch;
@@ -322,6 +360,9 @@
       .koozie-photos img {
         max-width: 100%;
       }
+      .totals-row {
+        flex-direction: row;
+      }
     }
   </style>
 </head>
@@ -331,21 +372,19 @@
       <header>
         <h1>Elks Riders Leather “Biker Vest” Koozie Order Form</h1>
         <p>
-          Natural leather koozies, engraved and cut on KLOWN's CNC laser table, finished with metal grommets, rivets, oil,
+          Natural leather koozies, engraved and cut on a CNC laser table, hand finished with metal grommets, rivets, oil,
           and leather lacing down both sides. Designed to look like Elks Riders vests.
         </p>
         <div class="highlight">
-          <strong>Pricing break down:</strong> Each koozie is <strong>$30</strong>.<br />
-          <strong>$15</strong> will go directly to <strong>Forks Elks Riders #2524</strong> general funds to help fund future projects,
-          and <strong>$15</strong> will go to <strong>KLOWN</strong> to help him cover the cost of materials.
-          Flat-rate <strong>$5 shipping</strong> is available anywhere in the U.S. for up to <strong>10 koozies per order</strong>.
+          <strong>$10 from every koozie sold is donated to Forks Elks Riders #2524</strong>, helping support local charity work,
+          group activities, and community service projects. Flat-rate <strong>$5 shipping</strong> is available anywhere in the U.S.
+          for up to <strong>10 koozies per order</strong>.
         </div>
+
         <p class="subtle">
-          Handmade by <strong>“KLOWN”</strong>, the current president and one of the founding members of Forks Elks Riders #2524.<br />
           When you submit this form, your email program will open with all order details filled in and addressed to
           <strong>pnw.klown@gmail.com</strong>.<br />
           <br />
-          
           You will receive a <strong>PayPal invoice</strong> once your order is ready to begin. Please <strong>do not send any payment</strong>
           until you receive that invoice. If you have not received an invoice within two weeks, please email
           <strong>pnw.klown@gmail.com</strong> to request an update on the status of your order.
@@ -357,7 +396,7 @@
         <div class="koozie-photos">
           <img src="koozie-back.jpg" alt="Back of the Elks Riders leather koozie" />
           <img src="koozie-front.jpg" alt="Front of the Elks Riders leather koozie" />
-          <img src="koozie-on-can.jpg" alt="Koozie shown on a can" />
+          <img src="koozie-on-can.jpg" alt="Elks Riders leather koozie shown on a can" />
         </div>
 
         <!-- CUSTOMER INFO -->
@@ -375,11 +414,10 @@
             <label for="customer-phone">Phone (optional)</label>
             <input type="text" id="customer-phone" />
           </div>
-         <div>
-  <label for="home-lodge-number">Your Home Elks Lodge Name & Number</label>
-  <input type="text" id="home-lodge-number" placeholder="e.g. Forks 2524" />
-</div>
-
+          <div>
+            <label for="home-lodge-number">Your Home Elks Lodge Name & Number</label>
+            <input type="text" id="home-lodge-number" placeholder="e.g. Forks 2524" />
+          </div>
         </div>
 
         <div class="grid-2" style="margin-top: 0.75rem;">
@@ -398,19 +436,19 @@
             <div class="checkbox-row">
               <label class="inline-row">
                 <input type="radio" name="shipping-option" value="pickup" />
-                <span>Local pickup / arrange directly with KLOWN (no shipping charge)</span>
+                <span>Local pickup / arrange directly with the order coordinator (no shipping charge)</span>
               </label>
             </div>
             <p class="subtle" style="margin-top: 0.5rem;">
-  Shipped orders include a PayPal processing fee of 2.9% + $0.30 in the total above. Local pickup orders may be paid in cash and do not include this fee.
-</p>
-
+              Shipped orders include a PayPal processing fee of <strong>2.9% + $0.30</strong> in the total above.
+              Local pickup orders may be paid in cash and do not include this fee.
+            </p>
           </div>
         </div>
 
         <p class="subtle" style="margin-top: 0.5rem;">
-          All information you provide is kept private and will never be shared or sold. You will only be contacted by KLOWN,
-          and only regarding communication about your order.
+          All information you provide is kept private and will never be shared or sold. You will only be contacted
+          regarding communication about this order.
         </p>
 
         <!-- KOOZIE ITEMS -->
@@ -420,7 +458,7 @@
         </div>
         <p class="subtle">
           Add a separate entry for each koozie. Each koozie will have personalized <strong>Road Name</strong>, <strong>Lodge Number</strong>,
-          <strong>Officer Title</strong>, and <strong>Founding Member</strong> "patches" as requested. The back "patch" will also display the Lodge Number as requested.
+          <strong>Officer Title</strong>, and <strong>Founding Member</strong> "patches" as requested. The back "patch" will also display the Lodge Number.
           If you need more than <strong>10 koozies</strong>, please submit an additional order form for the extra items.
         </p>
 
@@ -435,17 +473,35 @@
         <!-- TOTALS -->
         <h2>Order Summary</h2>
         <div class="totals" id="totals">
-  <div><strong>Quantity:</strong> <span id="summary-qty">0</span> koozie(s)</div>
-  <div><strong>Subtotal:</strong> $<span id="summary-subtotal">0</span></div>
-  <div><strong>To Elks Riders #2524 general funds:</strong> $<span id="summary-donation">0</span></div>
-  <div><strong>To KLOWN for materials:</strong> $<span id="summary-materials">0</span></div>
-  <div><strong>Shipping:</strong> $<span id="summary-shipping">0</span></div>
-  <div><strong>PayPal processing fee (shipped orders only):</strong> $<span id="summary-paypal">0</span></div>
-  <div style="margin-top: 0.35rem;">
-    <strong>Total amount to be invoiced:</strong> $<span id="summary-total">0</span>
-  </div>
-</div>
-
+          <div class="totals-row">
+            <div class="totals-label"><strong>Quantity:</strong></div>
+            <div class="totals-value"><span id="summary-qty">0</span> koozie(s)</div>
+          </div>
+          <div class="totals-row">
+            <div class="totals-label"><strong>Subtotal (@ $35 each):</strong></div>
+            <div class="totals-value">$<span id="summary-subtotal">0.00</span></div>
+          </div>
+          <div class="totals-row">
+            <div class="totals-label">Estimated donation to Forks Elks Riders #2524<br /><span class="subtle">(included in item price, $10 per koozie)</span></div>
+            <div class="totals-value">$<span id="summary-donation">0.00</span></div>
+          </div>
+          <div class="totals-row">
+            <div class="totals-label"><strong>Shipping:</strong></div>
+            <div class="totals-value">$<span id="summary-shipping">0.00</span></div>
+          </div>
+          <div class="totals-row">
+            <div class="totals-label"><strong>Washington sales tax (items + shipping):</strong></div>
+            <div class="totals-value">$<span id="summary-tax">0.00</span></div>
+          </div>
+          <div class="totals-row">
+            <div class="totals-label"><strong>PayPal processing fee (shipped orders only):</strong><br /><span class="subtle">(not subject to sales tax)</span></div>
+            <div class="totals-value">$<span id="summary-paypal">0.00</span></div>
+          </div>
+          <div class="totals-row" style="margin-top: 0.4rem;">
+            <div class="totals-label"><strong>Total amount to be invoiced:</strong></div>
+            <div class="totals-value"><strong>$<span id="summary-total">0.00</span></strong></div>
+          </div>
+        </div>
 
         <!-- PREVIEW (for copying if email client has issues) -->
         <div class="preview-box">
@@ -465,14 +521,16 @@
           <div class="subtle">
             After your email opens:<br />
             1) Review the details and click <strong>Send</strong>.<br />
-            2) Once KLOWN is ready to begin your order, you will receive a <strong>PayPal invoice</strong> for the total amount.
+            2) Once your order is ready to begin, you will receive a <strong>PayPal invoice</strong> for the total amount.
           </div>
         </div>
 
         <p class="footer-text">
           <span>Note:</span> This site does not process online payments. Orders are completed by emailing your details.
-          Payment is made only after you receive a PayPal invoice from KLOWN. Your contact information is used solely
-          for communication about this order and is never shared or sold. None of your information is saved on this site, this is only a utility designed to form an email with a uniform layout to assist in ordering.
+          Payment is made only after you receive a PayPal invoice. Your contact information is used solely
+          for communication about this order and is never shared or sold. None of your information is saved on this site; this is
+          only a utility designed to form an email with a uniform layout to assist in ordering.
+          Washington sales tax is applied to the item price and shipping, but not to any PayPal processing fees.
           Pricing may vary depending on changes in material costs, supply availability, or additional labor required to complete orders.
           Orders are not considered accepted, and production will not begin, until a PayPal invoice has been sent and payment has been received.
           All orders are processed on a first-come, first-served basis, and completion times may vary depending on current demand.
@@ -496,7 +554,7 @@
         </div>
         <div>
           <label>Road name on this koozie *</label>
-          <input type="text" class="koozie-road-name" placeholder="e.g. “KLOWN”" required />
+          <input type="text" class="koozie-road-name" placeholder='e.g. “KLOWN”' required />
         </div>
       </div>
 
@@ -532,28 +590,26 @@
 
   <script>
     (function () {
-      const PRICE_PER_KOOZIE = 30;
-const DONATION_PER_KOOZIE = 15;
-const MATERIALS_PER_KOOZIE = 15;
-const SHIPPING_FLAT = 5;   // flat USPS shipping
-const PAYPAL_PERCENT = 0.029; // 2.9%
-const PAYPAL_FIXED = 0.30;    // $0.30 per order
-const MAX_KOOZIES = 10;
-const ORDER_EMAIL = "pnw.klown@gmail.com";
-
+      const PRICE_PER_KOOZIE = 35;
+      const DONATION_PER_KOOZIE = 10;
+      const SHIPPING_FLAT = 5;        // flat USPS shipping
+      const PAYPAL_PERCENT = 0.029;   // 2.9%
+      const PAYPAL_FIXED = 0.30;      // $0.30 per order
+      const SALES_TAX_RATE = 0.084;   // 8.4% combined sales tax (items + shipping, not PayPal)
+      const MAX_KOOZIES = 10;
+      const ORDER_EMAIL = "pnw.klown@gmail.com";
 
       const koozieList = document.getElementById("koozie-list");
       const koozieTemplate = document.getElementById("koozie-template");
       const addKoozieBtn = document.getElementById("add-koozie-btn");
 
       const qtyEl = document.getElementById("summary-qty");
-const subtotalEl = document.getElementById("summary-subtotal");
-const donationEl = document.getElementById("summary-donation");
-const materialsEl = document.getElementById("summary-materials");
-const shippingEl = document.getElementById("summary-shipping");
-const paypalEl = document.getElementById("summary-paypal");
-const totalEl = document.getElementById("summary-total");
-
+      const subtotalEl = document.getElementById("summary-subtotal");
+      const donationEl = document.getElementById("summary-donation");
+      const shippingEl = document.getElementById("summary-shipping");
+      const taxEl = document.getElementById("summary-tax");
+      const paypalEl = document.getElementById("summary-paypal");
+      const totalEl = document.getElementById("summary-total");
 
       const previewText = document.getElementById("preview-text");
       const form = document.getElementById("order-form");
@@ -562,7 +618,7 @@ const totalEl = document.getElementById("summary-total");
 
       function addKoozie() {
         if (koozieList.children.length >= MAX_KOOZIES) {
-          alert("Maximum of " + MAX_KOOZIES + " koozies per order. For more, please submit an additional order form or contact KLOWN.");
+          alert("Maximum of " + MAX_KOOZIES + " koozies per order. For more, please submit an additional order form or contact the order coordinator.");
           return;
         }
 
@@ -628,42 +684,42 @@ const totalEl = document.getElementById("summary-total");
       }
 
       function updateTotalsAndPreview() {
-       const items = getKoozieData();
-const qty = items.length;
-const subtotal = qty * PRICE_PER_KOOZIE;
-const donation = qty * DONATION_PER_KOOZIE;
-const materials = qty * MATERIALS_PER_KOOZIE;
+        const items = getKoozieData();
+        const qty = items.length;
+        const subtotal = qty * PRICE_PER_KOOZIE;
+        const donation = qty * DONATION_PER_KOOZIE;
 
-const shippingOption = document.querySelector('input[name="shipping-option"]:checked')?.value || "ship";
-let shipping = 0;
-if (shippingOption === "ship" && qty > 0) {
-  shipping = SHIPPING_FLAT;
-}
+        const shippingOption = document.querySelector('input[name="shipping-option"]:checked')?.value || "ship";
+        let shipping = 0;
+        if (shippingOption === "ship" && qty > 0) {
+          shipping = SHIPPING_FLAT;
+        }
 
-// PayPal fee: applies ONLY to shipped orders
-let paypalFee = 0;
-if (shippingOption === "ship" && qty > 0) {
-  paypalFee = subtotal * PAYPAL_PERCENT + PAYPAL_FIXED;
-}
+        // Tax is applied to items + shipping (not PayPal fee)
+        const taxableAmount = subtotal + shipping;
+        const salesTax = taxableAmount > 0 ? taxableAmount * SALES_TAX_RATE : 0;
 
-const total = subtotal + shipping + paypalFee;
+        // PayPal fee: applies ONLY to shipped orders, not taxed
+        let paypalFee = 0;
+        if (shippingOption === "ship" && qty > 0) {
+          paypalFee = subtotal * PAYPAL_PERCENT + PAYPAL_FIXED;
+        }
 
+        const total = subtotal + shipping + salesTax + paypalFee;
 
         qtyEl.textContent = qty;
-subtotalEl.textContent = subtotal.toFixed(2);
-donationEl.textContent = donation.toFixed(2);
-materialsEl.textContent = materials.toFixed(2);
-shippingEl.textContent = shipping.toFixed(2);
-paypalEl.textContent = paypalFee.toFixed(2);
-totalEl.textContent = total.toFixed(2);
+        subtotalEl.textContent = subtotal.toFixed(2);
+        donationEl.textContent = donation.toFixed(2);
+        shippingEl.textContent = shipping.toFixed(2);
+        taxEl.textContent = salesTax.toFixed(2);
+        paypalEl.textContent = paypalFee.toFixed(2);
+        totalEl.textContent = total.toFixed(2);
 
-// Update the preview text area
-previewText.value = buildEmailBody(items, subtotal, donation, materials, shipping, paypalFee, total);
-
+        // Update the preview text area
+        previewText.value = buildEmailBody(items, subtotal, donation, salesTax, shipping, paypalFee, total);
       }
 
-     function buildEmailBody(items, subtotal, donation, materials, shipping, paypalFee, total) {
-
+      function buildEmailBody(items, subtotal, donation, salesTax, shipping, paypalFee, total) {
         const name = document.getElementById("customer-name").value.trim();
         const email = document.getElementById("customer-email").value.trim();
         const phone = document.getElementById("customer-phone").value.trim();
@@ -683,13 +739,13 @@ previewText.value = buildEmailBody(items, subtotal, donation, materials, shippin
         lines.push("Customer name (person placing this order): " + (name || ""));
         lines.push("Email: " + (email || ""));
         if (phone) lines.push("Phone: " + phone);
-       if (homeLodge) lines.push("Home Lodge Name & Number: " + homeLodge);
-
-        lines.push("Shipping choice: " + (shippingOption === "ship" ? "Ship via USPS flat-rate" : "Local pickup / arrange with KLOWN"));
+        if (homeLodge) lines.push("Home Lodge Name & Number: " + homeLodge);
+        lines.push("Shipping choice: " + (shippingOption === "ship" ? "Ship via USPS flat-rate" : "Local pickup / arrange with order coordinator"));
         if (shippingOption === "ship" && shippingAddress) {
           lines.push("Shipping address:");
           lines.push(shippingAddress);
         }
+
         lines.push("");
         lines.push("Koozie Details (" + items.length + " total)");
         lines.push("--------------------------------");
@@ -712,29 +768,29 @@ previewText.value = buildEmailBody(items, subtotal, donation, materials, shippin
         lines.push("Pricing & Allocation Summary");
         lines.push("----------------------------");
         lines.push("Quantity: " + items.length + " koozie(s)");
-        lines.push("Subtotal (@ $30 each): $" + subtotal.toFixed(2));
-        lines.push("Amount to Forks Elks Riders #2524 general funds (@ $15 each): $" + donation.toFixed(2));
-        lines.push("Amount to KLOWN for materials (@ $15 each): $" + materials.toFixed(2));
+        lines.push("Subtotal (@ $35 each): $" + subtotal.toFixed(2));
+        lines.push("Estimated donation to Forks Elks Riders #2524 (included in item price, $10 per koozie): $" + donation.toFixed(2));
         lines.push("Shipping: $" + shipping.toFixed(2));
-lines.push("PayPal processing fee (shipped orders only): $" + paypalFee.toFixed(2));
-lines.push("Total to be invoiced: $" + total.toFixed(2));
+        lines.push("Washington sales tax (items + shipping): $" + salesTax.toFixed(2));
+        lines.push("PayPal processing fee (shipped orders only, not subject to sales tax): $" + paypalFee.toFixed(2));
+        lines.push("Total to be invoiced: $" + total.toFixed(2));
 
         lines.push("");
         lines.push("Payment Information");
-lines.push("-------------------");
-lines.push("For shipped orders, payment is collected by PayPal. The total above includes a PayPal processing fee of 2.9% + $0.30.");
-lines.push("Local pickup orders may be paid in cash and will not incur this PayPal fee.");
-lines.push("KLOWN will send a PayPal invoice for $" + total.toFixed(2) + " once your order is ready to begin (for shipped orders).");
-lines.push("Please do not send any payment until you receive that invoice.");
-lines.push("The invoice will identify this as your Elks Riders leather koozie order.");
-lines.push("");
-lines.push("If you require more than 10 koozies, an additional order form may be submitted for the extra items.");
+        lines.push("-------------------");
+        lines.push("For shipped orders, payment is collected by PayPal. The total above includes a PayPal processing fee of 2.9% + $0.30.");
+        lines.push("Local pickup orders may be paid in cash and will not incur this PayPal fee.");
+        lines.push("A PayPal invoice will be sent for $" + total.toFixed(2) + " once your order is ready to begin (for shipped orders).");
+        lines.push("Please do not send any payment until you receive that invoice.");
+        lines.push("The invoice will identify this as your Elks Riders leather koozie order.");
+        lines.push("");
+        lines.push("If you require more than 10 koozies, an additional order form may be submitted for the extra items.");
 
         lines.push("");
         lines.push("Privacy & Contact");
         lines.push("-----------------");
         lines.push("Your information is kept private and will never be shared or sold.");
-        lines.push("You will only be contacted by KLOWN regarding this order.");
+        lines.push("You will only be contacted regarding this order.");
         lines.push("");
         lines.push("Thank you for supporting Forks Elks Riders #2524!");
 
@@ -794,22 +850,23 @@ lines.push("If you require more than 10 koozies, an additional order form may be
           return;
         }
 
-       // Recompute totals to keep in sync
-const qty = items.length;
-const subtotal = qty * PRICE_PER_KOOZIE;
-const donation = qty * DONATION_PER_KOOZIE;
-const materials = qty * MATERIALS_PER_KOOZIE;
-const shipping = shippingOption === "ship" && qty > 0 ? SHIPPING_FLAT : 0;
+        // Recompute totals to keep in sync
+        const qty = items.length;
+        const subtotal = qty * PRICE_PER_KOOZIE;
+        const donation = qty * DONATION_PER_KOOZIE;
+        const shipping = shippingOption === "ship" && qty > 0 ? SHIPPING_FLAT : 0;
 
-let paypalFee = 0;
-if (shippingOption === "ship" && qty > 0) {
-  paypalFee = subtotal * PAYPAL_PERCENT + PAYPAL_FIXED;
-}
+        const taxableAmount = subtotal + shipping;
+        const salesTax = taxableAmount > 0 ? taxableAmount * SALES_TAX_RATE : 0;
 
-const total = subtotal + shipping + paypalFee;
+        let paypalFee = 0;
+        if (shippingOption === "ship" && qty > 0) {
+          paypalFee = subtotal * PAYPAL_PERCENT + PAYPAL_FIXED;
+        }
 
-const emailBody = buildEmailBody(items, subtotal, donation, materials, shipping, paypalFee, total);
+        const total = subtotal + shipping + salesTax + paypalFee;
 
+        const emailBody = buildEmailBody(items, subtotal, donation, salesTax, shipping, paypalFee, total);
         const subject = "Elks Riders Koozie Order - " + name + " (" + qty + " koozie(s))";
 
         // Update preview in case it isn't already
