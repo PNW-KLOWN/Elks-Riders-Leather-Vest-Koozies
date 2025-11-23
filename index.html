@@ -22,7 +22,7 @@
       margin: 0;
       padding: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #020617 0, #020617 40%, #020617 100%);
+      background: var(--bg);
       color: var(--text);
     }
 
@@ -79,7 +79,7 @@
     }
 
     .highlight {
-      background: linear-gradient(135deg, #1d4ed8, #2563eb);
+      background: #1C3F94;
       border-left: 4px solid var(--accent-light);
       padding: 0.9rem 1.1rem;
       border-radius: 10px;
@@ -372,30 +372,27 @@
       <header>
         <h1>Elks Riders Leather “Biker Vest” Koozie Order Form</h1>
         <p>
-          Natural leather koozies designed by KLOWN, engraved and cut on a CNC laser table, hand finished with metal grommets, rivets, oil,
-          and leather lacing down both sides. Designed to look like Elks Riders vests.
+          Natural leather koozies designed by KLOWN, engraved and cut on a CNC laser table, and hand-finished with metal grommets, rivets, oil,
+          and leather lacing down both sides. Each one is styled to look like an Elks Riders vest.
         </p>
         <div class="highlight">
-          <strong>$10 from every koozie sold is donated to Forks Elks Riders #2524</strong>, helping support local charity work,
-          group activities, and community service projects. .
+          <strong>$10 from every koozie sold is donated to Forks Elks Riders #2524</strong>, supporting local charity work,
+          group activities, and community service projects.
         </div>
 
         <p class="subtle">
-          When you submit this form, your email program will open with all order details filled in and addressed to
-          <strong>pnw.klown@gmail.com</strong>.<br />
-          <br />
-          Flat-rate <strong>$5 shipping</strong> is available anywhere in the U.S.
-          for up to <strong>10 koozies per order</strong>.
-          <br />
-          <br />
-          You will receive a <strong>PayPal invoice</strong> once your order is ready to begin. Please <strong>do not send any payment</strong>
-          until you receive that invoice. If you have not received an invoice within two weeks, please email
-          <strong>pnw.klown@gmail.com</strong> to request an update on the status of your order.
-          <br />
-          <br />
-          Just a reminder: <strong>don’t send payment</strong> to pnw.klown@gmail.com.
-          <br />
-          You will receive a PayPal invoice from <strong>Olympic Artforge</strong> and will arrive from a separate email address.
+          When you submit this form, your email program will open a new message with your order details filled in and addressed to
+          <strong>pnw.klown@gmail.com</strong>.
+        </p>
+        <p class="subtle">
+          Flat-rate <strong>$5 shipping</strong> is available anywhere in the U.S. for up to <strong>10 koozies per order</strong>.
+        </p>
+        <p class="subtle">
+          You will receive a <strong>PayPal invoice</strong> from <strong>Olympic Artforge</strong> once your order is ready to begin.
+          Please <strong>do not send any payment</strong> directly to <strong>pnw.klown@gmail.com</strong>; the invoice will come from a different email address.
+        </p>
+        <p class="subtle">
+          If you have not received an invoice within two weeks, please email <strong>pnw.klown@gmail.com</strong> to request an update on the status of your order.
         </p>
       </header>
 
@@ -449,15 +446,14 @@
               </label>
             </div>
             <p class="subtle" style="margin-top: 0.5rem;">
-              Shipped orders include a PayPal processing fee of <strong>2.9% + $0.30</strong> in the total above.
+              Shipped orders include a PayPal processing fee of <strong>2.9% + $0.30</strong> in the total shown in the order summary.
               Local pickup orders may be paid in cash and do not include this fee.
             </p>
           </div>
         </div>
 
         <p class="subtle" style="margin-top: 0.5rem;">
-          All information you provide is kept private and will never be shared or sold. You will only be contacted
-          regarding communication about this order.
+          All information you provide is kept private and will never be shared or sold. You will only be contacted with questions or updates about this order.
         </p>
 
         <!-- KOOZIE ITEMS -->
@@ -466,8 +462,8 @@
           <span class="badge">Each one can be unique</span>
         </div>
         <p class="subtle">
-          Add a separate entry for each koozie. Each koozie will have personalized <strong>Road Name</strong>, <strong>Lodge Number</strong>,
-          <strong>Officer Title</strong>, and <strong>Founding Member</strong> "patches" as requested. The back "patch" will also display the Lodge Number.
+          Use a separate entry for each koozie. Each koozie can have personalized “patches” for the <strong>Road Name</strong>, <strong>Lodge Number</strong>,
+          <strong>Officer Title</strong>, and <strong>Founding Member</strong>, as requested. The back patch will also display the Lodge Number.
           If you need more than <strong>10 koozies</strong>, please submit an additional order form for the extra items.
         </p>
 
@@ -508,13 +504,13 @@
           </div>
 
           <div class="totals-row">
-            <div class="totals-label"><strong>8.4% Washington (and local) sales tax (items + shipping):</strong></div>
+            <div class="totals-label"><strong>8.4% WA state/local sales tax (items + shipping):</strong></div>
             <div class="totals-value">$<span id="summary-tax">0.00</span></div>
           </div>
 
           <div class="totals-row">
             <div class="totals-label">
-              <strong>PayPal fee (shipped orders only, not subject to sales tax):</strong>
+              <strong>PayPal processing fee (shipped orders only, not subject to sales tax):</strong>
             </div>
             <div class="totals-value">$<span id="summary-paypal">0.00</span></div>
           </div>
@@ -550,8 +546,10 @@
         <p class="footer-text">
           <span>Note:</span> This site does not process online payments. Orders are completed by emailing your details.
           Payment is made only after you receive a PayPal invoice. Your contact information is used solely
-          for communication about this order and is never shared or sold. None of your information is saved on this site; this is
-          only a utility designed to form an email with a uniform layout to assist in ordering.
+          for communication about this order and is never shared or sold. None of your information is saved on this site; this page
+          only helps generate an email with a consistent layout to assist in ordering.
+        </p>
+        <p class="footer-text">
           8.4% Washington (and local) sales tax is applied to the item price and shipping, but not to any PayPal processing fees.
           Pricing may vary depending on changes in material costs, supply availability, or additional labor required to complete orders.
           Orders are not considered accepted, and production will not begin, until a PayPal invoice has been sent and payment has been received.
@@ -763,7 +761,12 @@
         lines.push("Email: " + (email || ""));
         if (phone) lines.push("Phone: " + phone);
         if (homeLodge) lines.push("Home Lodge Name & Number: " + homeLodge);
-        lines.push("Shipping choice: " + (shippingOption === "ship" ? "Ship via USPS flat-rate" : "Local pickup / arrange with order coordinator"));
+        lines.push(
+          "Shipping choice: " +
+          (shippingOption === "ship"
+            ? "Ship via USPS flat-rate"
+            : "Local pickup at Olympic Artforge")
+        );
         if (shippingOption === "ship" && shippingAddress) {
           lines.push("Shipping address:");
           lines.push(shippingAddress);
@@ -793,7 +796,7 @@
         lines.push("Quantity: " + items.length + " koozie(s)");
         lines.push("Subtotal (@ $35 each): $" + subtotal.toFixed(2));
         lines.push("Shipping: $" + shipping.toFixed(2));
-        lines.push("8.4% Washington (and local) sales tax (items + shipping): $" + salesTax.toFixed(2));
+        lines.push("8.4% WA state/local sales tax (items + shipping): $" + salesTax.toFixed(2));
         lines.push("PayPal processing fee (shipped orders only, not subject to sales tax): $" + paypalFee.toFixed(2));
         lines.push("Total to be invoiced: $" + total.toFixed(2));
 
@@ -806,9 +809,9 @@
         lines.push("");
         lines.push("Payment Information");
         lines.push("-------------------");
-        lines.push("For shipped orders, payment is collected by PayPal. The total above includes a PayPal processing fee of 2.9% + $0.30.");
+        lines.push("For shipped orders, payment is collected through PayPal. The total above includes a PayPal processing fee of 2.9% + $0.30.");
         lines.push("Local pickup orders may be paid in cash and will not incur this PayPal fee.");
-        lines.push("A PayPal invoice will be sent for $" + total.toFixed(2) + " once your order is ready to begin (for shipped orders).");
+        lines.push("A PayPal invoice will be sent for $" + total.toFixed(2) + " once your order is ready to begin.");
         lines.push("Please do not send any payment until you receive that invoice.");
         lines.push("The invoice will identify this as your Elks Riders leather koozie order.");
         lines.push("");
@@ -818,7 +821,7 @@
         lines.push("Privacy & Contact");
         lines.push("-----------------");
         lines.push("Your information is kept private and will never be shared or sold.");
-        lines.push("You will only be contacted regarding this order.");
+        lines.push("You will only be contacted with questions or updates about this order.");
         lines.push("");
         lines.push("Thank you for supporting Forks Elks Riders #2524!");
 
