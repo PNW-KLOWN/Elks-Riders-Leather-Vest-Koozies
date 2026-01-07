@@ -14,9 +14,7 @@
       --text: #0f172a;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -88,13 +86,9 @@
       color: #ffffff;
     }
 
-    .highlight strong {
-      color: #e5e7eb;
-    }
+    .highlight strong { color: #e5e7eb; }
 
-    form {
-      margin-top: 1rem;
-    }
+    form { margin-top: 1rem; }
 
     .grid-2 {
       display: grid;
@@ -277,9 +271,7 @@
       color: var(--accent);
     }
 
-    .totals-label {
-      color: #374151;
-    }
+    .totals-label { color: #374151; }
 
     .totals-value {
       font-variant-numeric: tabular-nums;
@@ -343,26 +335,12 @@
     }
 
     @media (max-width: 640px) {
-      .card {
-        padding: 1.5rem 1rem 1.8rem;
-      }
-      .actions-row {
-        flex-direction: column;
-        align-items: stretch;
-      }
-      .actions-row > div {
-        width: 100%;
-      }
-      .btn {
-        justify-content: center;
-        width: 100%;
-      }
-      .koozie-photos img {
-        max-width: 100%;
-      }
-      .totals-row {
-        flex-direction: row;
-      }
+      .card { padding: 1.5rem 1rem 1.8rem; }
+      .actions-row { flex-direction: column; align-items: stretch; }
+      .actions-row > div { width: 100%; }
+      .btn { justify-content: center; width: 100%; }
+      .koozie-photos img { max-width: 100%; }
+      .totals-row { flex-direction: row; }
     }
   </style>
 </head>
@@ -385,7 +363,7 @@
           <strong>pnw.klown@gmail.com</strong>.
         </p>
         <p class="subtle">
-          Flat-rate <strong>$5 shipping</strong> is available anywhere in the U.S. for up to <strong>10 koozies per order</strong>.
+          Flat-rate <strong>$12.60 shipping</strong> is available anywhere in the U.S. for up to <strong>10 koozies per order</strong>.
         </p>
         <p class="subtle">
           You will receive a <strong>PayPal invoice</strong> from <strong>Olympic Artforge</strong> once your order is ready to begin.
@@ -435,13 +413,13 @@
             <div class="checkbox-row">
               <label class="inline-row">
                 <input type="radio" name="shipping-option" value="ship" checked />
-                <span>Ship my order (adds $5 flat-rate per order, up to 10 koozies)</span>
+                <span>Ship my order (adds $12.60 flat-rate per order, up to 10 koozies)</span>
               </label>
             </div>
             <div class="checkbox-row">
               <label class="inline-row">
                 <input type="radio" name="shipping-option" value="pickup" />
-                <span>Local pickup at: <strong>Olympic Artforge</strong> <br /> 
+                <span>Local pickup at: <strong>Olympic Artforge</strong> <br />
                   located at: <strong>781 S Forks Ave, Forks, WA 98331</strong> (no shipping charge)</span>
               </label>
             </div>
@@ -464,10 +442,11 @@
         <p class="subtle">
           Use a separate entry for each koozie. Each koozie can have personalized “patches” for the <strong>Road Name</strong>, <strong>Lodge Number</strong>,
           <strong>Officer Title</strong>, and <strong>Founding Member</strong>, as requested. The back patch will also display the Lodge Number.
-          If you need more than <strong>10 koozies</strong>, please submit an additional order form for the extra items. 
-           </p>
-          If your chapter’s patch layout is different, please contact KLOWN at pnw.klown@gmail.com 
-        to arrange any necessary design adjustments <strong>before</strong> you submit your order.
+          If you need more than <strong>10 koozies</strong>, please submit an additional order form for the extra items.
+        </p>
+        <p class="subtle">
+          If your chapter’s patch layout is different, please contact KLOWN at <strong>pnw.klown@gmail.com</strong>
+          to arrange any necessary design adjustments <strong>before</strong> you submit your order.
         </p>
 
         <div class="koozie-list" id="koozie-list">
@@ -550,7 +529,7 @@
           <span>Note:</span> This site does not process online payments. Orders are completed by emailing your details.
           Payment is made only after you receive a PayPal invoice. Your contact information is used solely
           for communication about this order and is never shared or sold. None of your information is saved on this site; this page
-          only helps generate an email with a consistent layout to assist in ordering. There may be slight variations in color and thickness as well as small flaws, 
+          only helps generate an email with a consistent layout to assist in ordering. There may be slight variations in color and thickness as well as small flaws,
           marks or scrapes due to the use of natural leather.
         </p>
         <p class="footer-text">
@@ -617,10 +596,10 @@
     (function () {
       const PRICE_PER_KOOZIE = 35;
       const DONATION_PER_KOOZIE = 10;
-      const SHIPPING_FLAT = 5;        // flat USPS shipping
-      const PAYPAL_PERCENT = 0.029;   // 2.9%
-      const PAYPAL_FIXED = 0.30;      // $0.30 per order
-      const SALES_TAX_RATE = 0.084;   // 8.4% combined sales tax (items + shipping, not PayPal)
+      const SHIPPING_FLAT = 12.60;     // flat USPS shipping
+      const PAYPAL_PERCENT = 0.029;    // 2.9%
+      const PAYPAL_FIXED = 0.30;       // $0.30 per order
+      const SALES_TAX_RATE = 0.084;    // 8.4% combined sales tax (items + shipping, not PayPal)
       const MAX_KOOZIES = 10;
       const ORDER_EMAIL = "pnw.klown@gmail.com";
 
@@ -675,6 +654,7 @@
 
         // Update preview when any field in this koozie changes
         item.addEventListener("input", updateTotalsAndPreview);
+
         koozieList.appendChild(clone);
         renumberKoozies();
         updateTotalsAndPreview();
@@ -697,13 +677,7 @@
           const officerCustom = item.querySelector(".koozie-officer-custom").value.trim();
           const founding = item.querySelector(".koozie-founding").checked;
 
-          items.push({
-            lodge,
-            roadName,
-            officer,
-            officerCustom,
-            founding,
-          });
+          items.push({ lodge, roadName, officer, officerCustom, founding });
         });
         return items;
       }
@@ -715,20 +689,16 @@
         const donation = qty * DONATION_PER_KOOZIE;
 
         const shippingOption = document.querySelector('input[name="shipping-option"]:checked')?.value || "ship";
-        let shipping = 0;
-        if (shippingOption === "ship" && qty > 0) {
-          shipping = SHIPPING_FLAT;
-        }
+        const shipping = (shippingOption === "ship" && qty > 0) ? SHIPPING_FLAT : 0;
 
         // Tax is applied to items + shipping (not PayPal fee)
         const taxableAmount = subtotal + shipping;
         const salesTax = taxableAmount > 0 ? taxableAmount * SALES_TAX_RATE : 0;
 
         // PayPal fee: applies ONLY to shipped orders, not taxed
-        let paypalFee = 0;
-        if (shippingOption === "ship" && qty > 0) {
-          paypalFee = subtotal * PAYPAL_PERCENT + PAYPAL_FIXED;
-        }
+        const paypalFee = (shippingOption === "ship" && qty > 0)
+          ? (subtotal * PAYPAL_PERCENT + PAYPAL_FIXED)
+          : 0;
 
         const total = subtotal + shipping + salesTax + paypalFee;
 
@@ -740,7 +710,6 @@
         paypalEl.textContent = paypalFee.toFixed(2);
         totalEl.textContent = total.toFixed(2);
 
-        // Update the preview text area
         previewText.value = buildEmailBody(items, subtotal, donation, salesTax, shipping, paypalFee, total);
       }
 
@@ -765,12 +734,14 @@
         lines.push("Email: " + (email || ""));
         if (phone) lines.push("Phone: " + phone);
         if (homeLodge) lines.push("Home Lodge Name & Number: " + homeLodge);
+
         lines.push(
           "Shipping choice: " +
           (shippingOption === "ship"
-            ? "Ship via USPS flat-rate"
+            ? "Ship via USPS flat-rate ($" + SHIPPING_FLAT.toFixed(2) + ")"
             : "Local pickup at Olympic Artforge")
         );
+
         if (shippingOption === "ship" && shippingAddress) {
           lines.push("Shipping address:");
           lines.push(shippingAddress);
@@ -835,9 +806,7 @@
       addKoozieBtn.addEventListener("click", addKoozie);
 
       document.addEventListener("change", (e) => {
-        if (e.target.name === "shipping-option") {
-          updateTotalsAndPreview();
-        }
+        if (e.target.name === "shipping-option") updateTotalsAndPreview();
       });
 
       document.addEventListener("input", (e) => {
@@ -889,22 +858,20 @@
         const qty = items.length;
         const subtotal = qty * PRICE_PER_KOOZIE;
         const donation = qty * DONATION_PER_KOOZIE;
-        const shipping = shippingOption === "ship" && qty > 0 ? SHIPPING_FLAT : 0;
+        const shipping = (shippingOption === "ship" && qty > 0) ? SHIPPING_FLAT : 0;
 
         const taxableAmount = subtotal + shipping;
         const salesTax = taxableAmount > 0 ? taxableAmount * SALES_TAX_RATE : 0;
 
-        let paypalFee = 0;
-        if (shippingOption === "ship" && qty > 0) {
-          paypalFee = subtotal * PAYPAL_PERCENT + PAYPAL_FIXED;
-        }
+        const paypalFee = (shippingOption === "ship" && qty > 0)
+          ? (subtotal * PAYPAL_PERCENT + PAYPAL_FIXED)
+          : 0;
 
         const total = subtotal + shipping + salesTax + paypalFee;
 
         const emailBody = buildEmailBody(items, subtotal, donation, salesTax, shipping, paypalFee, total);
         const subject = "Elks Riders Koozie Order - " + name + " (" + qty + " koozie(s))";
 
-        // Update preview in case it isn't already
         previewText.value = emailBody;
 
         const mailtoLink =
@@ -915,7 +882,6 @@
           "&body=" +
           encodeURIComponent(emailBody);
 
-        // Open default email client
         window.location.href = mailtoLink;
       });
 
